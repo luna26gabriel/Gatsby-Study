@@ -1,16 +1,19 @@
+import { Link } from "gatsby";
 import React from "react"
-import Navibar from "../components/Navibar";
 import Layout from "../components/Layout";
+const styles = require("../styles/home.module.css");
 
 export default function Home() {
   return (
     <Layout>
-      <section>
+      <section className={styles.header}>
         <div>
           <h2>Design</h2>
           <h3>Develop & Deploy</h3>
           <p>UX designer & web developer based if Manchester</p>
+          <Link className={styles.btn} to="/projects">My Portifolio Projects</Link>
         </div>
+        <img src="/banner.png" alt="Site Banner" style={{ maxWidth: '100%' }}/>
       </section>
     </Layout>
   );
