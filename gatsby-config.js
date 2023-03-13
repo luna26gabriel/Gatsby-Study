@@ -9,4 +9,10 @@
  */
 module.exports = {
   plugins: [],
+  siteMetadata: {
+    title: 'Web Warrior',
+    description: 'web dev portfolio',
+    copyright: 'This website was developed by Gabriel Juan'
+    
+  }
 }

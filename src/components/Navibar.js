@@ -1,4 +1,4 @@
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery} from 'gatsby'
 import React from 'react'
 
 export default function Navibar() {
