@@ -1,11 +1,9 @@
-import { graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import React from "react"
 import Layout from "../components/Layout";
 const styles = require("../styles/home.module.css");
 
-export default function Home({ data }) {
-const { title, description } = data.site.siteMetadata;
-  console.log(data)
+export default function Home() {
   return (
     <Layout>
       <section className={styles.header}>
@@ -16,19 +14,7 @@ const { title, description } = data.site.siteMetadata;
           <Link className={styles.btn} to="/projects">My Portifolio Projects</Link>
         </div>
         <img src="/banner.png" alt="Site Banner" style={{ maxWidth: '100%' }}/>
-        <p>{ title } - { description }</p>
       </section>
     </Layout>
   );
 }
-
-export const query = graphql`
-  query SiteInfo {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`
