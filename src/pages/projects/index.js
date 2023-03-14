@@ -5,7 +5,8 @@ const styles = require("../../styles/projects.module.css");
 
 export default function Projects({ data }) {
   console.log(data);
-  const projects = data.allMarkdownRemark.nodes;
+  const projects = data.projects.nodes;
+  const contact = data.contact.siteMetadata.contact;
   return (
     <Layout>
       <div className={styles.portfolio}>
@@ -13,7 +14,7 @@ export default function Projects({ data }) {
         <h3>Projects & WebSites I've Created</h3>
         <div className={styles.projects}>
           {projects.map(project => (
-            <Link to={"/projects/" +project.frontmatter.slug } ket={ project.id }>
+            <Link to={"/projects/" + project.frontmatter.slug } key={ project.id }>
               <div>
                 <h3>{ project.frontmatter.title }</h3>
                 <p>{ project.frontmatter.stack }</p>
@@ -21,6 +22,7 @@ export default function Projects({ data }) {
             </Link>
           ))}
         </div>
+        <p>Link what you see? Contact me at { contact } for more</p>
       </div>
     </Layout>
   )
@@ -28,7 +30,7 @@ export default function Projects({ data }) {
 
 export const query = graphql`
 query ProjectsPage {
-  allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+  projects: allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
     nodes {
       frontmatter {
         title
@@ -36,6 +38,11 @@ query ProjectsPage {
         slug
       }
       id
+    }
+  }
+  contact: site {
+    siteMetadata {
+      contact
     }
   }
 }`;

@@ -21,7 +21,7 @@ module.exports = {
   siteMetadata: {
     title: 'Web Warrior',
     description: 'web dev portfolio',
-    copyright: 'This website was developed by Gabriel Juan'
-    
+    copyright: 'This website was developed by Gabriel Juan',
+    contact: "gabrieljuan@gmaik.com"
   }
 }
