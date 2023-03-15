@@ -1,4 +1,5 @@
 import { graphql, Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react'
 import Layout from '../../components/Layout'
 const styles = require("../../styles/projects.module.css");
@@ -6,7 +7,7 @@ const styles = require("../../styles/projects.module.css");
 export default function Projects({ data }) {
   console.log(data);
   const projects = data.projects.nodes;
-  const contact = data.contact.siteMetadata.contact;
+  const contact = data.contact.siteMetadata.contact;  
   return (
     <Layout>
       <div className={styles.portfolio}>
@@ -16,6 +17,7 @@ export default function Projects({ data }) {
           {projects.map(project => (
             <Link to={"/projects/" + project.frontmatter.slug } key={ project.id }>
               <div>
+                <GatsbyImage image={ project.frontmatter.thumb.childImageSharp.gatsbyImageData } alt={project.frontmatter.title} />
                 <h3>{ project.frontmatter.title }</h3>
                 <p>{ project.frontmatter.stack }</p>
               </div>
@@ -36,6 +38,11 @@ query ProjectsPage {
         title
         stack
         slug
+        thumb {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
       id
     }
