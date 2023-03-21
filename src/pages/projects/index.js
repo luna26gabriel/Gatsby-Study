@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react'
 import Layout from '../../components/Layout'
 const styles = require("../../styles/projects.module.css");
